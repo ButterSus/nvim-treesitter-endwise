@@ -62,10 +62,4 @@
  ) @endable @indent
  (#endwise! "join"))
 ((ERROR ("fork" @cursor) @indent) (#endwise! "join"))
-([(case_statement . [ "case" (case_keyword) ] "(" (_) ")" "inside" @cursor)
-  (case_statement . [ "case" (case_keyword) ] "(" (_) ")" @cursor)] @endable @indent
- (#endwise! "endcase"))
-((ERROR
-   [("case" . "(" . (_) . ")" . "inside" @cursor)
-    ("case" . "(" . (_) . ")" @cursor)]
-   @indent) (#endwise! "endcase"))
+((ERROR (case_keyword) @indent . (case_expression) . ")" @cursor) (#endwise! "endcase"))
